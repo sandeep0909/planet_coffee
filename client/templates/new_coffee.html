@@ -1,0 +1,27 @@
+<div class="header">
+  <h1>Create New Coffee</h1>
+</div>
+
+<div class="content">
+  <h2 class="content-subhead">Coffee</h2>
+<!-- ng-submit is only for form tag , get the data using ng-model-->
+  <form ng-submit="cc.createCoffee()" class="pure-form pure-form-stacked">
+     <fieldset>
+         <legend>New Coffee:</legend>
+
+         <label for="name">Name</label>
+         <input ng-model="cc.coffee.name" id="name" type="text" placeholder="Name">
+
+         <label for="year">Year</label>
+         <input ng-model="cc.coffee.year" id="year" type="text" placeholder="year">
+
+         <label for="description">Desc</label>
+         <input ng-model="cc.coffee.description" id="desc" type="text" placeholder="desc">
+
+         <label for="image">Image</label>
+         <input  ng-model="cc.coffee.image" id="image" type="text" placeholder="image">
+
+         <button type="submit" class="pure-button pure-button-primary">Create New Coffee</button>
+     </fieldset>
+ </form>
+</div>

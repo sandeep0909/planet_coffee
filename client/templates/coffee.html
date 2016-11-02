@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="page-header">
+      <h1>{{scc.coffee.year}} {{scc.coffee.country}}</h1>
+    </div>
+    <div class="col-md-6">
+      <img class="coffee-image" ng-src="{{scc.coffee.image}}">
+    </div>
+    <div class="col-md-6">
+      <p> {{scc.coffee.description}} </p>
+      <button class="btn btn-sm btn-danger" ng-click="scc.destroyCoffee()">Delete</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<nav class="navbar navbar-default navbar-custom affix navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <!-- Mobile Nav Button -->
+      <button ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a ui-sref="home" class="navbar-brand">Planet Coffee</a>
+    </div>
+
+    <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
+      <!-- Main nav links -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="coffees">Browse</a></li>
+        <li><a>Share</a></li>
+        <li><a ng-click="main.logout()">Logout</a></li>
+      </ul>
+
+      <!-- Filter Car List, only on 'cars' state -->
+      <!-- Only showing the form if you are in the car state and hence can filter on the second view -->
+      <form ng-show="main.$state.includes('coffees')" class="navbar-form navbar-right">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Filter List" ng-model="coffeeFilter">
+          <div class="input-group-btn">
+            <button ng-click="coffeeFilter = ''" ng-disabled="!coffeeFilter" class="btn btn-default" type="button">
+              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>

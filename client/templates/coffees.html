@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="page-header">
+        <h1>
+          Planet Coffee Show Room
+          <!-- Pluralize 'Results' if more than 1 or 0 -->
+          <small>
+            ({{filteredCoffees.length}} Coffee<span ng-if="filteredCoffees.length > 1 || !filteredCoffees.length">s</span>)
+          </small>
+        </h1>
+      </div>
+      <div class="list-group">
+        <!-- ui-sref="car - This is the state name({id: car._id}- This is single car and id) -->
+        <div class="list-group-item clearfix coffee" ng-repeat="coffee in cc.coffees | filter: coffeeFilter as filteredCoffees">
+          <div class="row">
+            <div class="col-sm-3 text-center">
+              <img  ui-sref="coffee({id: coffee._id})" ng-src="{{ coffee.image }}">
+            </div>
+            <div class="col-sm-9">
+              <!-- {{$index}} can be used below -->
+              <h3> {{ coffee.name }} {{ coffee.country }} <small>{{ coffee.year }} <button ng-click="cc.destroyCoffee(coffee)" class="btn btn-sm btn-danger">Delete</button></small></h3>
+              <p>
+                <!-- ,$index can be used in cc.destroyCar(car,,$index)-->
+                {{ coffee.description | limitTo: cc.textLimit}}
+                <span ng-if="coffee.description.length > cc.textLimit">...</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

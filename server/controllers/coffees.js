@@ -42,6 +42,13 @@ function update(req, res) {
   })
 }
 
+function addToCart(req, res) {
+  Coffee.findByIdAndUpdate(req.params.id, req.body, {new: true},function(err, coffee) {
+    if(err) return console.log(err)
+    res.json({success: true, message: "Coffee  updated!", coffee: coffee})
+  })
+}
+
 function destroy(req, res) {
   Coffee.findByIdAndRemove(req.params.id, function(err) {
     if(err) return console.log(err)

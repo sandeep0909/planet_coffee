@@ -9,10 +9,19 @@ angular.module('planet_coffee')
       show:show,
       destroy: destroy,
       update: update,
+      post:post,
       create:create
     }
     function index(){
       return $http.get('/api/coffees')
+    }
+    function create(coffee){
+      console.log("going to factory");
+      return $http.post('/api/coffees',coffee )
+    }
+    function post(){
+      console.log("going to factory");
+      return $http.post('/api/coffees',coffee )
     }
     function show(id){
       console.log("going to show in server");
@@ -24,8 +33,7 @@ angular.module('planet_coffee')
     function update(coffee){
       return $http.patch('/api/coffees/'+ coffee._id, coffee)
     }
-    function create(coffee){
-      console.log("going to factory");
-      return $http.post('/api/coffees',coffee )
+    function addToUser(coffee){
+      return $http.add('/api/coffees/'+ coffee._id, coffee)
     }
   }

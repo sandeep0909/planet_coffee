@@ -19,7 +19,7 @@ function MainController($rootScope, $state, AuthService) {
       .then(function(data){
         vm.currentUser = data.data.user
         $rootScope.currentUser = data.data.user
-        console.log($rootScope)
+        //console.log($rootScope)
       })
   })
 
@@ -32,7 +32,7 @@ function MainController($rootScope, $state, AuthService) {
       })
   }
 
-  console.log($rootScope)
+//  console.log($rootScope)
 }
 
 // LOGIN CONTROLLER:
@@ -49,7 +49,7 @@ function loginController($state, AuthService) {
       // handle success
       .then(function () {
         console.log("Successful login...")
-        $state.go('profile')
+        $state.go('coffees')
         vm.disabled = false
         vm.loginForm = {}
       })
@@ -112,16 +112,16 @@ function SingleUserController($http, AuthService, $rootScope) {
       vm.currentUser = data.data.user
       $http.get('/api/users/' + vm.currentUser._id)
         .success(function(data) {
-          console.log(data)
+        //  console.log(data)
           vm.currentUser = data
         })
     })
 
-  vm.addCoffee = function() {
-    $http.post('/api/coffees', vm.newCoffee)
-      .success(function(data) {
-        console.log(data)
-        vm.currentUser.coffees.push(data.coffee)
-      })
-  }
+  // vm.addCoffee = function() {
+  //   $http.post('/api/coffees', vm.newCoffee)
+  //     .success(function(data) {
+  //       console.log(data)
+  //       vm.currentUser.coffees.push(data.coffee)
+  //     })
+  // }
 }

@@ -1,30 +1,25 @@
-<div class="container">
+<div class="container" ng-init="mcc.loadMyOrders(main.currentUser)">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="page-header">
         <h1>
-          Planet Coffee Show Room
+          My Orders
           <!-- Pluralize 'Results' if more than 1 or 0 -->
-          <small>
+          <!-- <small>
             ({{filteredCoffees.length}} Coffee<span ng-if="filteredCoffees.length > 1 || !filteredCoffees.length">s</span>)
-          </small>
-          <a ui-sref="newCoffee" class="btn btn-info btn">New Coffee</a>
+          </small> -->
         </h1>
       </div>
       <div class="list-group">
-        <!-- ui-sref="car - This is the state name({id: car._id}- This is single car and id) -->
-        <div class="list-group-item clearfix coffee" ng-repeat="coffee in cc.coffees | filter: coffeeFilter as filteredCoffees">
+        <div class="list-group-item clearfix coffee" ng-repeat="coffee in mcc.coffees | filter: coffeeFilter as filteredCoffees">
           <div class="row">
             <div class="col-sm-3 text-center">
               <img  ui-sref="coffee({id: coffee._id})" ng-src="{{ coffee.image }}">
             </div>
             <div class="col-sm-9">
-              <!-- {{$index}} can be used below -->
               <h3> {{ coffee.name }} {{ coffee.country }} <small>{{ coffee.year }}
-                <!-- <button ng-click="cc.destroyCoffee(coffee)" class="btn btn-sm btn-danger">Delete</button> -->
               </small></h3>
               <p>
-                <!-- ,$index can be used in cc.destroyCar(car,,$index)-->
                 {{ coffee.description | limitTo: cc.textLimit}}
                 <span ng-if="coffee.description.length > cc.textLimit">...</span>
               </p>

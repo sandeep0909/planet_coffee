@@ -1,14 +1,46 @@
 <div class="container">
   <div class="row">
     <div class="page-header">
+      {{}}
       <h1>{{scc.coffee.year}} {{scc.coffee.country}}</h1>
     </div>
     <div class="col-md-6">
       <img class="coffee-image" ng-src="{{scc.coffee.image}}">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" ng-show="scc.selected">
       <p> {{scc.coffee.description}} </p>
-      <button class="btn btn-sm btn-danger" ng-click="scc.destroyCoffee()">Delete</button>
+      <button ng-if="main.currentUser.access == 1" class="btn btn-sm btn-danger" ng-click="scc.destroyCoffee()">Delete</button>
+      <button class="btn btn-sm btn-warning" ng-if="main.currentUser.access == 0" ng-click="scc.selected = false">Update</button>
+      <button class="btn btn-sm btn-success" ng-click="scc.addCoffee(currentUser)">Add Coffee</button>
     </div>
+
+    <div class="header" ng-hide="scc.selected">
+      <h1>Update Coffee</h1>
+
+    <div class="content">
+      <h2 class="content-subhead">Coffee</h2>
+    <!-- ng-submit is only for form tag , get the data using ng-model-->
+      <form ng-submit="scc.updateCoffee()" class="pure-form pure-form-stacked">
+         <fieldset>
+             <legend>Update Coffee:</legend>
+
+             <label for="name">Name</label>
+             <input class="form-control" ng-model="scc.coffee.name" id="name" type="text" placeholder="Name">
+
+             <label for="year">Year</label>
+             <input class="form-control" ng-model="scc.coffee.year" id="year" type="text" placeholder="year">
+
+             <label for="description">Desc</label>
+             <input class="form-control" ng-model="scc.coffee.description" id="desc" type="text" placeholder="desc">
+
+             <label for="image">image</label>
+             <input  class="form-control" ng-model="scc.coffee.image" id="image" type="text" placeholder="image">
+
+             <button type="submit" class="pure-button pure-button-primary">Update Coffee</button>
+         </fieldset>
+     </form>
+    </div>
+</div>
+
   </div>
 </div>

@@ -32,6 +32,11 @@ function router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/coffees.html',
       controller: 'CoffeesController as cc'
     })
+    .state('myorders', {
+      url: '/myorders',
+      templateUrl: 'templates/myorders.html',
+      controller: 'MyCoffeesController as mcc'
+    })
     .state('newCoffee',{
       url:'/coffees/new',
       templateUrl: 'templates/new_coffee.html',
@@ -47,7 +52,7 @@ function router($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: 'templates/edit_coffee.html',
       controller: 'EditCoffeeController as scc',
       restricted: true,
-      //admin: true
+      admin: true
     })
     .state('login', { // states for login
       url: '/login',

@@ -23,3 +23,32 @@
 .coffee-image{
   max-width: 100%;
 }
+
+header {
+  background-image: url('../../img/coffee-planet-2.png');
+
+}
+
+.loginuser{
+    color: #fed136;
+    font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+}
+#intro-lead{
+
+  color:brown;
+}
+#introId{
+  color:brown;
+}
+.loginpage{
+  background-image: url('../../img/coffeeBG.jpg');
+  width: 100%;
+  height:800px;
+}
+.vColor{
+  color:white;
+}
+
+#lColor{
+  color:black;
+}

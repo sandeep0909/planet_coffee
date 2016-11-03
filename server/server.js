@@ -10,7 +10,10 @@ var
   path = require('path'),
   passport = require('passport'),
   passportConfig = require('./config/passport.js'),
-  apiRoutes = require('./routes/coffees.js')
+  coffeeRoutes = require('./routes/coffees.js'),
+  apiRoutes = require('./routes/api.js'),
+  userRoutes = require('./routes/users.js')
+
   // coffeeRoutes = require('./routes/coffees.js')
   PORT = process.env.port || 8000;
 
@@ -45,8 +48,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 //app.use(express.static('client'))
 
 // routes
-app.use('/user/', routes)
-app.use('/api', apiRoutes)
+app.use('/api', userRoutes)
+app.use('/api', coffeeRoutes)
+app.use('/user', apiRoutes)
 
 app.get('*', function(req, res) {
   res.sendFile('/client/index.html', {root: './'})

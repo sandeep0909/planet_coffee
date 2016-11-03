@@ -2,11 +2,11 @@
 
 <form class="form" ng-submit="scc.addCoffee()">
   <div class="form-group">
-    <label>Name</label>
+    <label id="lColor">Name</label>
     <input type="text" class="form-control" name="name" ng-model="scc.newCoffee.name" required>
   </div>
   <div class="form-group">
-    <label>Image</label>
+    <label id="lColor">Image</label>
       <input type="text" class="form-control" name="image" ng-model="scc.newCoffee.image" required>
     </div>
     <div>
@@ -16,7 +16,10 @@
 
 <ul class="list-group">
   <li ng-repeat="coffee in scc.currentUser.coffees" class="list-group-item">
-    <img ng-src="{{ coffee.image }}">
+    <img id="lColor" ng-src="{{ coffee.image }}">
     {{ coffee.name }}
   </li>
 <ul>
+
+
+  

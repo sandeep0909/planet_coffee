@@ -1,9 +1,9 @@
 angular.module('planet_coffee')
   .controller('CoffeesController', CoffeesController)
 
-CoffeesController.$inject = ['$http', '$scope', 'CoffeeFactory']
+CoffeesController.$inject = ['$http', '$scope', '$state','CoffeeFactory']
 
-function CoffeesController($http, $scope, CoffeeFactory) {
+function CoffeesController($http, $scope,$state,CoffeeFactory) {
   var vm = this
 
   // limit car description length on cars index:
@@ -21,16 +21,28 @@ function CoffeesController($http, $scope, CoffeeFactory) {
     CoffeeFactory.create(vm.coffee)
       .success(function(data) {
         vm.coffees = data
-        //$state.go('coffees')
+        $state.go('coffees')
       })
+    }
+    vm.addCoffee=function(){
+    // console.log(vm.newCoffee);
+    $http.post(apiUrl,vm.newCoffee)
+      .success(function(data){
+        //console.log(data);
+        vm.coffees.push(data.coffee)
+      })
+    }
+
+    vm.addToCart = function(coffee){
+
     }
 //vm.destroyCar = function(car, index)
     //vm.destroyCoffee = function(id, index) {
     vm.destroyCoffee = function(coffee) {
-      console.log('entering delete' +coffee);
+      // console.log('entering delete' +coffee);
       CoffeeFactory.destroy(coffee._id)
         .success(function(data){
-          console.log(data);
+        //  console.log(data);
           vm.coffees.splice(vm.coffees.indexOf(coffee),1)
           //pure java script way vm.cars.splice(vm.cars.indexOf(car),1)
           //angular way down below ng-repeat creates a loca variable called ng-index that can be accessed anywhere within the scope of ng-repeat. this index has to come from ng-repeat in cars.html as $index. check for that

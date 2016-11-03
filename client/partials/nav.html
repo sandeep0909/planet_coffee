@@ -10,14 +10,16 @@
         <span class="icon-bar"></span>
       </button>
       <a ui-sref="home" class="navbar-brand">Planet Coffee</a>
+
     </div>
 
     <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
       <!-- Main nav links -->
       <ul class="nav navbar-nav navbar-right">
+        <li><a class="loginuser"> Welcome: {{currentUser.username}}</a></li>
         <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="coffees">Browse</a></li>
-        <li><a>Share</a></li>
+        <li><a ui-sref="myorders">My Orders</a></li>
+        <!-- <li><a>Share</a></li> -->
         <li><a ng-click="main.logout()">Logout</a></li>
       </ul>
 

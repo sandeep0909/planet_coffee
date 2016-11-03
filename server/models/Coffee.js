@@ -6,7 +6,8 @@ var
     country: String,
     description: String,
     image: String,
-    owner: {type: mongoose.Schema.Types.ObjectId, ref: 'User'}
+    _by: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    people: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
   }, {timestamps: true})
 
 var Coffee = mongoose.model('Coffee', coffeeSchema)

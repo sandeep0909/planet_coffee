@@ -2,6 +2,8 @@ var
   mongoose = require('mongoose'),
   coffeeSchema = new mongoose.Schema({
     year: Number,
+    price:String,
+    quantity:Number,
     name: String,
     country: String,
     description: String,

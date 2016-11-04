@@ -1,6 +1,7 @@
 var
   express = require('express'),
   app = express(),
+  http = require('http').Server(app);
   logger = require('morgan'),
   mongoose = require('mongoose'),
   cookieParser = require('cookie-parser'),

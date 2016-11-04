@@ -16,11 +16,12 @@
     <div class="collapse navbar-collapse" uib-collapse="navCollapsed">
       <!-- Main nav links -->
       <ul class="nav navbar-nav navbar-right">
-        <li><a class="loginuser"> Welcome: {{currentUser.username}}</a></li>
-        <li><a ui-sref="home">Home</a></li>
-        <li><a ui-sref="myorders">My Orders</a></li>
+        <li><a ui-sref="coffees" class="loginuser">Browse Coffees</a><li>
+        <li><a ng-if="currentUser" class="loginuser"> Welcome: {{currentUser.username}}</a></li>
+        <!-- <li><a ui-sref="home">Home</a></li> -->
+        <li><a ng-if="currentUser" ui-sref="myorders">My Orders</a></li>
         <!-- <li><a>Share</a></li> -->
-        <li><a ng-click="main.logout()">Logout</a></li>
+        <li><a ng-if="currentUser" ng-click="main.logout()">Logout</a></li>
       </ul>
 
       <!-- Filter Car List, only on 'cars' state -->

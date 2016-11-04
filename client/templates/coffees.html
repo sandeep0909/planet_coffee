@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" id="imageAssist">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="page-header">
-        <h1>
+        <h1 class="vColor">
           Planet Coffee Show Room
           <!-- Pluralize 'Results' if more than 1 or 0 -->
-          <small>
+          <small id="lColor">
             ({{filteredCoffees.length}} Coffee<span ng-if="filteredCoffees.length > 1 || !filteredCoffees.length">s</span>)
           </small>
-          <a ui-sref="newCoffee" class="btn btn-info btn">New Coffee</a>
+          <a ng-if="main.currentUser.access == 0" ui-sref="newCoffee" class="btn btn-info btn">New Coffee</a>
         </h1>
       </div>
       <div class="list-group">
@@ -21,7 +21,7 @@
             <div class="col-sm-9">
               <!-- {{$index}} can be used below -->
               <h3> {{ coffee.name }} {{ coffee.country }} <small>{{ coffee.year }}
-                <!-- <button ng-click="cc.destroyCoffee(coffee)" class="btn btn-sm btn-danger">Delete</button> -->
+                <button ng-if="main.currentUser.access == 0" ng-click="cc.destroyCoffee(coffee)" class="btn btn-sm btn-danger">Delete</button>
               </small></h3>
               <p>
                 <!-- ,$index can be used in cc.destroyCar(car,,$index)-->

@@ -8,7 +8,7 @@ var
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
   expressSession = require('express-session'),
-  MongoStore = require('connect-mongo')(expressSession),
+  mongoStore = require('connect-mongo')(expressSession),
   hash = require('bcrypt-nodejs'),
   path = require('path'),
   passport = require('passport'),
@@ -18,11 +18,11 @@ var
   userRoutes = require('./routes/users.js'),
 
   // coffeeRoutes = require('./routes/coffees.js')
-  PORT = process.env.port || 8000;
-  // var mongoConnectionString = process.env.MONGO_URL || 'mongodb://localhost/planet_coffee';
-  var mongoConnectionString = process.env.MONGO_URL;
+PORT = process.env.port || 8000;
+var mongoConnectionString = process.env.MONGO_URL
+//var mongoConnectionString = process.env.MONGO_URL
 
-  //database connection
+  //Heroku database connection
   mongoose.connect(mongoConnectionString, function(err) {
     if (err) {
         console.log("Problem connecting to Mongo. Check if mongod is activated")
@@ -30,6 +30,15 @@ var
         console.log("Connected to Mongo!")
     }
 })
+
+//Local database connection
+// mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
+//   if (err) {
+//       console.log("Problem connecting to Mongo. Check if mongod is activated")
+//   } else {
+//       console.log("Connected to Mongo!")
+//   }
+// })
 
   // mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
 
@@ -52,7 +61,7 @@ app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
-    store: new MongoStore({url: mongoConnectionString})
+    store: new mongoStore({url: mongoConnectionString})
 }))
 app.use(passport.initialize())
 app.use(passport.session())

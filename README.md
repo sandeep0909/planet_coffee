@@ -34,17 +34,17 @@ The site has user model and events model
 ---
 
 ###### Login
-![WF] (public/images/intro.png)
+![WF] (public/images/login.png)
 
 --
 
 ###### Browse Coffee
-![WF](public/images/hub.png)
+![WF](public/images/Browse.png)
 
 --
 
 ###### My Orders
-![WF](public/images/index.png)
+![WF](public/images/myOrders.png)
 
 --
 

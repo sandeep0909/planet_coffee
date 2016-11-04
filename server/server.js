@@ -1,4 +1,5 @@
 var
+  dotenv = require('dotenv').load({silent: true}),
   express = require('express'),
   app = express(),
   http = require('http').Server(app);
@@ -29,7 +30,7 @@ var
 })
 
   // mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
-  
+
 // user schema/model
 var User = require('./models/User.js')
 

@@ -18,8 +18,8 @@ var
   userRoutes = require('./routes/users.js'),
 
   // coffeeRoutes = require('./routes/coffees.js')
-// PORT = process.env.port || 8000;
-  PORT = process.env.port
+  PORT = process.env.port || 3000;
+  //PORT = process.env.port
 var mongoConnectionString = process.env.MONGO_URL
 //var mongoConnectionString = process.env.MONGO_URL
 

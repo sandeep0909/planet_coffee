@@ -6,7 +6,7 @@ var passportLocalMongoose = require('passport-local-mongoose')
 var User = new Schema({
   username: String,
   password: String,
-  access:{type:Number, default:1},
+  access:{type:Number, default:0},
   //orders:[{type: mongoose.Schema.Types.ObjectId, ref: 'Coffee'}],
   coffees: [{type: mongoose.Schema.Types.ObjectId, ref: 'Coffee'}]
 })

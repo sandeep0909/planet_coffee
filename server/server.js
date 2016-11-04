@@ -33,13 +33,13 @@ var mongoConnectionString = process.env.MONGO_URL
 })
 
 //Local database connection
-// mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
-//   if (err) {
-//       console.log("Problem connecting to Mongo. Check if mongod is activated")
-//   } else {
-//       console.log("Connected to Mongo!")
-//   }
-// })
+mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
+  if (err) {
+      console.log("Problem connecting to Mongo. Check if mongod is activated")
+  } else {
+      console.log("Connected to Mongo!")
+  }
+})
 
   // mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
 

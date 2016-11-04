@@ -1,9 +1,7 @@
-
 #Planet Coffee
 ### Trading BEAN USING MEAN (stack)!!
 
-#### The purpose of the App is to give the wholeseller a way to trade coffee beans to retailers.
-
+#### The purpose of the App is to give the whole seller a way to trade coffee beans to retailers.
 
 ##Content
 * Installation & Requirements
@@ -29,7 +27,7 @@ You can use the app for your own purposes. However, you will have to acquire you
 ## Data Structure & Site Layout
 The site has user model and events model
 
-![ERD](public/images/erd.png)
+![ERD](client/img/erd.png)
 
 ---
 
@@ -37,20 +35,29 @@ The site has user model and events model
 ![WF] (public/images/login.png)
 
 --
-
-###### Browse Coffee
-![WF](public/images/Browse.png)
+###### Register
+![WF] (public/images/register.png)
 
 --
 
+###### Browse Coffees
+![WF](public/images/coffees.png)
+
+--
+###### Single Coffee
+![WF](public/images/coffee.png)
+
+--
+
+
 ###### My Orders
-![WF](public/images/myOrders.png)
+![WF](public/images/MyOrders.png)
 
 --
 
 ## User Stories
 
-Wholesellers login to the site and can post their items in the site. 
+Wholesellers login to the site and can post their items in the site.
 
 1. Wholeseller can post coffees into the site
 2. They can add new varieties of coffees
@@ -64,7 +71,7 @@ Retailers can register and login to the site and order for coffee
 3. Each retailer will see their own ordered item
 
 ## Technologies
-* Node.js, bcrypt-nodejs, body-parser,  cookie-parser, 
+* Node.js, bcrypt-nodejs, body-parser,  cookie-parser,
   express, express-ejs-layouts, express-session,  mongoose,
   morgan, passport, passport-local, AngularJS,JavaScript
 * Database: mongodb hosted on heroku

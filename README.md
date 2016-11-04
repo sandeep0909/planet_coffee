@@ -32,26 +32,26 @@ The site has user model and events model
 ---
 
 ###### Login
-![WF] (public/images/login.png)
+![WF] (client/img/login.png)
 
 --
 ###### Register
-![WF] (public/images/register.png)
+![WF] (client/img/register.png)
 
 --
 
 ###### Browse Coffees
-![WF](public/images/coffees.png)
+![WF](client/img/coffees.png)
 
 --
 ###### Single Coffee
-![WF](public/images/coffee.png)
+![WF](client/img/coffee.png)
 
 --
 
 
 ###### My Orders
-![WF](public/images/MyOrders.png)
+![WF](client/img/MyOrders.png)
 
 --
 

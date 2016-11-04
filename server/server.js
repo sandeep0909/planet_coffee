@@ -8,6 +8,7 @@ var
   cookieParser = require('cookie-parser'),
   bodyParser = require('body-parser'),
   expressSession = require('express-session'),
+  MongoStore = require('connect-mongo')(expressSession),
   hash = require('bcrypt-nodejs'),
   path = require('path'),
   passport = require('passport'),
@@ -18,7 +19,8 @@ var
 
   // coffeeRoutes = require('./routes/coffees.js')
   PORT = process.env.port || 8000;
-  var mongoConnectionString = process.env.MONGO_URL || 'mongodb://localhost/planet_coffee'
+  // var mongoConnectionString = process.env.MONGO_URL || 'mongodb://localhost/planet_coffee';
+  var mongoConnectionString = process.env.MONGO_URL;
 
   //database connection
   mongoose.connect(mongoConnectionString, function(err) {
@@ -49,7 +51,8 @@ app.use(cookieParser())
 app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({url: mongoConnectionString})
 }))
 app.use(passport.initialize())
 app.use(passport.session())

@@ -13,15 +13,23 @@ var
   passportConfig = require('./config/passport.js'),
   coffeeRoutes = require('./routes/coffees.js'),
   apiRoutes = require('./routes/api.js'),
-  userRoutes = require('./routes/users.js')
+  userRoutes = require('./routes/users.js'),
 
   // coffeeRoutes = require('./routes/coffees.js')
   PORT = process.env.port || 8000;
+  var mongoConnectionString = process.env.MONGO_URL || 'mongodb://localhost/planet_coffee'
 
-  mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
-  console.log(err || "Connected to MongoDB (planet_coffee)")
+  //database connection
+  mongoose.connect(mongoConnectionString, function(err) {
+    if (err) {
+        console.log("Problem connecting to Mongo. Check if mongod is activated")
+    } else {
+        console.log("Connected to Mongo!")
+    }
 })
 
+  // mongoose.connect('mongodb://localhost/planet_coffee', function(err) {
+  
 // user schema/model
 var User = require('./models/User.js')
 
